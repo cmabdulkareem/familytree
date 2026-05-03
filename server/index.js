@@ -7,7 +7,7 @@ const app = express();
 app.use(
   cors({
     origin: [
-      "https://familytree-steel-mu.vercel.app",
+      "https://familytree.vercel.app",
       "http://localhost:5173",
       "http://127.0.0.1:5173"
     ],
@@ -19,7 +19,7 @@ app.use(express.json());
 
 // MongoDB connection
 await mongoose
-  .connect("mongodb://127.0.0.1:27017/familyTree")
+  .connect("mongodb+srv://ftree:ftree@sample.kvxwkea.mongodb.net/familytree")
   .then(() => console.log("MongoDB connected"))
   .catch((err) => console.error("MongoDB connection error:", err));
 
