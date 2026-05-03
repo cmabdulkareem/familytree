@@ -7,12 +7,12 @@ const app = express();
 app.use(
   cors({
     origin: [
+      "https://familytree-nu-eight.vercel.app",
       "https://familytree.vercel.app",
       "http://localhost:5173",
       "http://127.0.0.1:5173"
     ],
     methods: ["GET", "POST"],
-    allowedHeaders: ["Content-Type"],
   })
 );
 app.use(express.json());
@@ -74,7 +74,7 @@ app.post("/update-family-tree", async (req, res) => {
 // Self-ping function to prevent Render sleep
 const selfPing = async () => {
   try {
-    await fetch("https://familytree-steel-mu.onrender.com/family-tree"); // replace with your Render URL
+    await fetch("https://familytree-lt3a.onrender.com/family-tree"); // replace with your Render URL
     console.log("Self-pinged server at", new Date().toLocaleTimeString());
   } catch (err) {
     console.error("Self-ping failed:", err.message);
