@@ -186,34 +186,42 @@ body {
 .member-header {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.5rem 0.75rem;
+  gap: 1rem;
+  padding: 0.6rem 1rem;
   background: var(--bg-secondary);
   border: 1px solid var(--border-subtle);
-  border-radius: 0.75rem;
+  border-radius: 1rem;
   width: fit-content;
-  min-width: 300px;
+  min-width: 320px;
   max-width: 100%;
-  transition: all 0.2s;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+  z-index: 2;
 }
 
 .member-header:hover {
-  background: var(--bg-accent);
+  background: var(--bg-secondary);
   border-color: var(--brand-primary);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.1);
+  transform: translateX(4px);
 }
 
 .member-info {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
 }
 
 .member-name-input {
   background: transparent;
   border: none;
   color: var(--text-primary);
-  font-size: 0.95rem;
+  font-size: 1rem;
   font-weight: 600;
   width: 100%;
-  padding: 0.2rem 0;
+  padding: 0.1rem 0;
+  letter-spacing: -0.01em;
 }
 
 .member-name-input:focus {
@@ -232,26 +240,60 @@ body {
   opacity: 1;
 }
 
-/* Connecting Lines (Bulletproof) */
+/* Connecting Lines - Threaded Style */
 .children-group {
-  margin-left: 2.5rem;
-  padding-left: 1.5rem;
-  border-left: 2px solid #e2e8f0;
-  margin-top: 0.25rem;
+  margin-left: 2rem;
+  padding-left: 0;
+  border-left: none;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  position: relative;
+}
+
+.member-node {
+  padding-left: 1.5rem;
+  margin-top: 0.75rem;
   position: relative;
 }
 
 .member-node::before {
-  content: '';
+  content: "";
   position: absolute;
-  left: -1.5rem;
-  top: 1.25rem;
+  left: 0;
+  top: -0.75rem; /* Connect from previous sibling or group start */
   width: 1.5rem;
-  height: 2px;
-  background: #e2e8f0;
+  height: calc(1.75rem + 0.75rem);
+  border-left: 2px solid #cbd5e1;
+  border-bottom: 2px solid #cbd5e1;
+  border-bottom-left-radius: 0.75rem;
+}
+
+/* The vertical continuation for nodes with siblings */
+.member-node::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 1.75rem;
+  width: 2px;
+  height: calc(100% - 1.75rem + 0.75rem);
+  background: #cbd5e1;
+}
+
+.member-node:last-child::after {
+  display: none;
+}
+
+/* Hide the connecting line for the top level children */
+.tree-container > .member-node::before {
+  border-left: none;
+  border-bottom: none;
+  width: 0;
+}
+.tree-container > .member-node {
+  padding-left: 0;
+}
+.tree-container > .member-node::after {
+  display: none;
 }
 
 /* Buttons */
@@ -394,18 +436,21 @@ body {
   }
 
   .children-group {
-    margin-left: 0.5rem;
-    padding-left: 0.5rem;
+    margin-left: 1.25rem;
+  }
+
+  .member-node {
+    padding-left: 1rem;
   }
 
   .member-node::before {
-    width: 0.5rem;
-    left: -0.5rem;
+    width: 1rem;
   }
 
   .member-header {
     min-width: 0;
     width: 100%;
-    padding: 0.5rem;
+    padding: 0.6rem 0.75rem;
+    gap: 0.5rem;
   }
 }

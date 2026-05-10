@@ -125,10 +125,10 @@ const MemberNode = ({ node, dispatch, searchTerm }) => {
       <div ref={nodeRef} className={`member-header ${isMatch ? "search-highlight" : ""}`}>
         <button 
           className="btn-icon" 
-          style={{ width: '1.5rem', height: '1.5rem' }} 
+          style={{ width: '1.5rem', height: '1.5rem', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '0.8rem' }} 
           onClick={() => dispatch({ type: "TOGGLE_COLLAPSE", id: node.id })}
         >
-          {hasChildren ? (node.collapsed ? "＋" : "－") : "•"}
+          {hasChildren ? (node.collapsed ? "▶" : "▼") : "○"}
         </button>
         <div className="member-info">
           <input
@@ -142,22 +142,22 @@ const MemberNode = ({ node, dispatch, searchTerm }) => {
             <div className="spouse-section">
               {node.spouses.map((s, i) => (
                 <div key={i} className="spouse-row">
-                  <span style={{ fontSize: '0.7rem', opacity: 0.5 }}>⚭</span>
+                  <span style={{ fontSize: '0.8rem', opacity: 0.7 }}>💍</span>
                   <input
                     className="spouse-input"
                     value={s}
-                    placeholder="Spouse..."
+                    placeholder="Spouse Name..."
                     onChange={(e) => dispatch({ type: "UPDATE_SPOUSE", id: node.id, idx: i, name: e.target.value })}
                   />
-                  <button className="btn-icon" style={{width: '1.2rem', height: '1.2rem'}} onClick={() => dispatch({ type: "DELETE_SPOUSE", id: node.id, idx: i })}>×</button>
+                  <button className="btn-icon" style={{width: '1.2rem', height: '1.2rem'}} onClick={() => dispatch({ type: "DELETE_SPOUSE", id: node.id, idx: i })}>✕</button>
                 </div>
               ))}
             </div>
           )}
         </div>
         <div className="member-actions">
-          <button className="btn-icon" onClick={() => dispatch({ type: "ADD_CHILD", id: node.id })} title="Add Child">👶</button>
-          <button className="btn-icon" onClick={() => dispatch({ type: "ADD_SPOUSE", id: node.id })} title="Add Spouse">💍</button>
+          <button className="btn-icon" onClick={() => dispatch({ type: "ADD_CHILD", id: node.id })} title="Add Child">＋</button>
+          <button className="btn-icon" onClick={() => dispatch({ type: "ADD_SPOUSE", id: node.id })} title="Add Spouse">⚭</button>
           <button className="btn-icon" onClick={() => dispatch({ type: "DELETE_NODE", id: node.id })} title="Delete">🗑</button>
         </div>
       </div>
