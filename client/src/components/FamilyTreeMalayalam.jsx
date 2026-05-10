@@ -327,8 +327,8 @@ export default function FamilyTreeMalayalam() {
       <style>{`
         .search-highlight {
           border-color: var(--brand-primary) !important;
-          background: rgba(99, 102, 241, 0.15) !important;
-          box-shadow: 0 0 15px rgba(99, 102, 241, 0.4);
+          background: rgba(129, 140, 248, 0.25) !important;
+          box-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
           animation: highlight-pulse 2s infinite;
         }
         .search-highlight-text {
@@ -336,9 +336,9 @@ export default function FamilyTreeMalayalam() {
           font-weight: 700 !important;
         }
         @keyframes highlight-pulse {
-          0% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0.4); }
-          70% { box-shadow: 0 0 0 10px rgba(99, 102, 241, 0); }
-          100% { box-shadow: 0 0 0 0 rgba(99, 102, 241, 0); }
+          0% { box-shadow: 0 0 0 0 rgba(129, 140, 248, 0.5); }
+          70% { box-shadow: 0 0 0 15px rgba(129, 140, 248, 0); }
+          100% { box-shadow: 0 0 0 0 rgba(129, 140, 248, 0); }
         }
       `}</style>
     </div>
