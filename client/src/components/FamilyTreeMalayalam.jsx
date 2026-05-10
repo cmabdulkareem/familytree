@@ -156,9 +156,9 @@ const MemberNode = ({ node, dispatch, searchTerm }) => {
           )}
         </div>
         <div className="member-actions">
-          <button className="btn-icon" onClick={() => dispatch({ type: "ADD_CHILD", id: node.id })} title="Add Child">＋</button>
-          <button className="btn-icon" onClick={() => dispatch({ type: "ADD_SPOUSE", id: node.id })} title="Add Spouse">⚭</button>
-          <button className="btn-icon" onClick={() => dispatch({ type: "DELETE_NODE", id: node.id })} title="Delete">🗑</button>
+          <button className="btn-icon" onClick={() => dispatch({ type: "ADD_CHILD", id: node.id })} title="Add Child">👶</button>
+          <button className="btn-icon" onClick={() => dispatch({ type: "ADD_SPOUSE", id: node.id })} title="Add Spouse">💍</button>
+          <button className="btn-icon" onClick={() => dispatch({ type: "DELETE_NODE", id: node.id })} title="Delete">🗑️</button>
         </div>
       </div>
 
