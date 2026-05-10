@@ -311,7 +311,7 @@ export default function FamilyTreeMalayalam() {
             </div>
             <div className="text-center mt-4" style={{ marginTop: '1rem' }}>
               <button className="btn btn-primary" style={{ padding: '0.5rem 1rem' }} onClick={() => dispatch({ type: "ADD_ROOT_CHILD" })}>
-                ＋ Add First Child
+                👶 Add First Child
               </button>
             </div>
           </div>
